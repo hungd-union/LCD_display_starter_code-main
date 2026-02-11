@@ -27,7 +27,7 @@
 #define CHANNEL_Timer   ADC_CHANNEL_5
 #define ADC_ATTEN       ADC_ATTEN_DB_12
 #define BITWIDTH        ADC_BITWIDTH_12
-#define DELAY_MS        20                  // Loop delay (ms)
+#define DELAY_MS        25                  // Loop delay (ms)
 adc_oneshot_unit_handle_t adc1_handle;      // ADC for Mode
 adc_oneshot_unit_handle_t adc2_handle;      // ADC for Timer
 
@@ -171,6 +171,7 @@ void app_main()
                 xTaskCreate(lcd_test, "lcd_test", configMINIMAL_STACK_SIZE * 3, NULL, 5, NULL);
             }
         }
+        vTaskDelay (DELAY_MS/ portTICK_PERIOD_MS);
     }
 }
 
